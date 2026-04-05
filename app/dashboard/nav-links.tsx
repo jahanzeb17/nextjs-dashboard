@@ -9,13 +9,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-// ...
+// 1. Define the links data array here
+const links = [
+  { name: "Home", href: "/dashboard", icon: HomeIcon },
+  {
+    name: "Invoices",
+    href: "/dashboard/invoices",
+    icon: DocumentDuplicateIcon,
+  },
+  { name: "Customers", href: "/dashboard/customers", icon: UserGroupIcon },
+];
 
 export default function NavLinks() {
   const pathname = usePathname();
 
   return (
     <>
+      {/* 2. Map over the 'links' array, NOT the 'Link' component */}
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
